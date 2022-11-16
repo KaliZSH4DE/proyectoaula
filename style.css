@@ -1,0 +1,161 @@
+@font-face{
+	font-family:IPAPMincho;
+	src:url(fonts/IPAPMincho.ttf);
+}
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+body{
+	background-color:#f2f2f2;
+	font-family:IPAPMincho;
+}
+a{
+	text-decoration:none;
+	outline:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+/* * ============================== */
+/* * ============ HEADER ========== */
+/* * ============================== */
+header{
+	height:auto;
+	max-height: 100vh;
+}
+.nav-label,.nav-input{
+	display:none;
+}
+.fondo{
+	width: 100%;
+	max-height:calc(100vh - 60px);
+}
+.navbar{
+	background: #6c1823;
+	height:60px;
+	position:sticky;
+	top:0;
+	text-align:center;
+}
+.nav-menu{
+	display:grid;
+	grid-auto-flow:column;
+	gap:3em;
+}
+.navbar a{
+	color:#f2f2f2ff;
+	text-decoration:none;
+	display:inline-block;
+	padding:20px;
+	width:100%;
+	text-align:center;
+	--clippy:polygon(0 0,0 0,0 100%,0% 100%);
+}
+.navbar a::after{
+	content:"";
+	display:block;
+	background:#f2f2f2;
+	width:90%;
+	margin-top:3px;
+	height:3px;
+	clip-path:var(--clippy);
+	transition:clip-path .3s;
+}
+.navbar a:hover{
+	--clippy:polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.contenedor{
+	max-width:1000px;
+	width:90%;
+	margin:auto;
+	display:flex;
+	justify-content:left;
+}
+/* * ============================== */
+/* * ============ MAIN ============ */
+/* * ============================== */
+main{
+	min-height:100vh;
+}
+main .contenido p{
+	margin-bottom:20px;
+	line-height:30px;
+	color:#808080;
+	font-size:20px;
+}
+main .contenido .titulo{
+    font-family:'Montserrat',sans-serif;
+	font-weight:normal;
+	padding-top:40px;
+	color: #6c1823;
+	font-size:40px;
+}
+.subtitulo{
+    color: #6c1823;
+}
+/* * ============================== */
+/* * ========== FOOTER ============ */
+/* * ============================== */
+footer{
+    background: #6c1823;
+}
+.pie{
+    text-align:center;
+    color:#f2f2f2;
+	padding: 50px 30px;
+}
+/* * ============================== */
+/* * ====== MEDIA QUERIES ========= */
+/* * ============================== */
+@media screen and (max-width: 700px) {
+/*====== nav ======*/
+	header {
+		width: 100vw;
+		height: auto;
+		max-height: 50vh;
+	}
+	.nav-label {
+		display:block;
+		cursor:pointer;
+		text-align: center;
+		line-height:50px;
+		height: 50px;
+		width: 50px;
+	}
+	.nav-img{
+		width: 100%;
+		padding: 10px;
+	}
+	.nav-menu {
+		position: fixed;
+		top: 50px;
+		height: 100vh;
+		bottom: 0;
+		background: #6c1823;
+		width: 100vw;
+		left: 0;
+		display: flex;
+		justify-content: space-evenly;
+		flex-direction: column;
+		align-items: center;
+		clip-path: circle(0% at 50% 50%);
+		transition: clip-path 1s ease-in-out;
+	}
+	.nav-input:checked + .nav-menu {
+		clip-path: circle(100% at 50% 50%);
+	}
+	.fondo {
+		width: 100vw;
+		max-height: calc(50vh - 30px);
+	}
+	.navbar {
+		height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+
+}
